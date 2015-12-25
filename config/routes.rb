@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :events do
-    resource :comments, :controller => 'event_comments'
+    resources :comments, :controller => 'event_comments'
   end
 
   namespace :admin do
