@@ -1,9 +1,22 @@
 Rails.application.routes.draw do
+
+
+  devise_for :users
+  resources :events do
+    resource :comments, :controller => 'event_comments'
+  end
+
+  namespace :admin do
+    resources :events
+  end
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+   root 'events#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

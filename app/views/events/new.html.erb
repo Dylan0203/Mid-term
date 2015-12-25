@@ -1,0 +1,8 @@
+<%= form_for @event, :url => events_path do |f| %>
+<hr>
+<%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) %>
+
+<%= render :partial => 'form', :locals => { :f => f } %>
+
+    <%= f.submit "Create" %>
+<% end %>

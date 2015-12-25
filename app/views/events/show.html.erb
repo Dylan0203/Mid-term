@@ -1,0 +1,35 @@
+
+<h1><%= @event.topic %></h1>
+
+<p>詳細內容：<%= simple_format(@event.content) %></p>
+<hr>
+<p>Published by <%= @event.user.email %></p>
+<hr>
+<p>Published at <%= @event.updated_at %></p>
+<hr>
+<h3>類別：</h3><p><% @event.categories.each do |c|%> 
+  <%= c.name %>
+  <% end %></p>
+  <hr>
+<p>Here to show Comments:</p>
+
+<% @comments.each do |cm| %>
+<p><%= cm.reply %></p>
+<p>by <%= cm.user.email%> on <%=cm.updated_at%></p>
+<p><%= link_to '刪除', event_comments_path(@event, cm), :method => :delete %></p>
+<hr>
+<% end %>
+
+
+
+<%= form_for @comment, :url => event_comments_path(@event) do |f| %>
+
+
+<%= f.label :reply, "回覆" %>
+<%= f.text_area :reply %>
+
+    <%= f.submit "送出" %>
+<% end %>
+
+
+<p><%= link_to 'Back to index', events_path %></p>
