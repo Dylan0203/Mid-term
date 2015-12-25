@@ -3,7 +3,7 @@
 
 <p>詳細內容：<%= simple_format(@event.content) %></p>
 <hr>
-<p>Published by <%= @event.user.email %></p>
+<p>Published by <%= @event.user.short_name %></p>
 <hr>
 <p>Published at <%= @event.updated_at %></p>
 <hr>
