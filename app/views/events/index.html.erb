@@ -3,15 +3,15 @@
 <table class="table">
   <tr>
     <td>標題</td>
-    <td></td>
-    <td></td>
+    <td>發佈者</td>
+    <td>發佈時間</td>
     <td>操作</td>
   </tr>
   <% @events.each do |e| %>
     <tr>
-      <td></td>
-      <td></td> 
       <td><%= e.topic %></td>
+      <td><%= e.user.email %></td>
+      <td><%= e.updated_at %></td> 
       <td><%= link_to "細節", event_path(e), :class => "btn btn-primary" %>
       <%= link_to "編輯", edit_event_path(e) , :class => "btn btn-default"%>
       <%= link_to "刪除", event_path(e), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "btn btn-danger" %></td>
